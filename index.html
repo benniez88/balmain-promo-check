@@ -218,7 +218,7 @@ function route(){
 function showItem(it, record=true){
   view={name:"item",item:it};
   const st=status(cur), p=DATA.stores[cur], le=isLE(it);
-  const others=Object.keys(DATA.stores).filter(k=>k!==cur).map(k=>{
+  const others=Object.keys(DATA.stores).filter(k=>k===cur).map(k=>{
     const s=status(k);return `${STORE_LABEL[k]||k}: ${fmt(DATA.stores[k].start)} – ${fmt(DATA.stores[k].end)} · ${s.t}`;
   }).join("<br>");
   out.innerHTML = `
