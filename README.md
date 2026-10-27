@@ -1,6 +1,6 @@
 # Balmain Promo Check
 
-Single-file web app for looking up Balmain Hair Couture promotions (70–90% off, Oct–Dec 2026) at Landing Store AL3.
+Single-file web app for looking up Balmain Hair Couture promotions (70–90% off, Oct–Dec 2026).
 
 - Search by Article, Sup. Ref / barcode, or part of the product name
 - Handheld barcode scanner support (scan + Enter)
