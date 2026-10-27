@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<title>Balmain Promo Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f4f0; --surface:#ffffff; --ink:#111111; --ink-2:#55524c; --ink-3:#8f8a81;
+  --line:#e6e1d8; --gold:#a8834a; --gold-soft:#f3ebdd; --gold-ink:#7a5c2c;
+  --green:#1f7a4d; --green-soft:#e3f2ea; --amber:#9a6a00; --amber-soft:#fbf0d6;
+  --red:#b3261e; --red-soft:#fbe5e3;
+  --radius:18px; --shadow:0 1px 2px rgba(17,17,17,.04),0 8px 24px rgba(17,17,17,.06);
+  --sans:"IBM Plex Sans Thai",-apple-system,"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;min-height:100dvh}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 48px}
+
+/* Header */
+header{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;padding:env(safe-area-inset-top) 0 0}
+.head-in{max-width:560px;margin:0 auto;padding:14px 16px 16px}
+.brand{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.brand h1{font-family:var(--serif);font-weight:600;font-size:26px;letter-spacing:.22em;line-height:1}
+.brand small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#cbb58f}
+.seg{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;background:#262626;border-radius:12px;padding:4px;gap:4px}
+.seg button{padding:9px 6px;border-radius:9px;font-size:14px;font-weight:600;color:#bdb8ae;transition:background .15s,color .15s;line-height:1.2}
+.seg button span{display:block;font-size:11px;font-weight:400;opacity:.8;margin-top:2px}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--ink)}
+
+/* Search */
+.search{margin-top:18px;position:relative}
+.search input{width:100%;height:60px;border:1.5px solid var(--line);background:var(--surface);border-radius:16px;
+  padding:0 52px 0 52px;font:inherit;font-size:19px;font-weight:500;color:var(--ink);outline:none;box-shadow:var(--shadow);
+  transition:border-color .15s,box-shadow .15s}
+.search input::placeholder{color:var(--ink-3);font-weight:400;font-size:16px}
+.search input:focus{border-color:var(--ink);box-shadow:0 0 0 4px rgba(17,17,17,.06),var(--shadow)}
+.search .ico{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--ink-3);pointer-events:none}
+.search .clr{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;
+  display:none;place-items:center;color:var(--ink-2)}
+.search .clr:hover{background:var(--bg)}
+.search.has .clr{display:grid}
+.hint{margin:10px 4px 0;font-size:13px;color:var(--ink-3);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+kbd{font-family:inherit;font-size:11px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;background:var(--surface);color:var(--ink-2)}
+
+/* Result card */
+#out{margin-top:18px}
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;animation:rise .22s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card-top{padding:20px 20px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.disc{background:var(--ink);color:#fff;border-radius:14px;padding:10px 14px;text-align:center;line-height:1;min-width:84px}
+.disc b{display:block;font-size:30px;font-weight:700;letter-spacing:-.02em}
+.disc i{font-style:normal;font-size:11px;letter-spacing:.14em;color:#cbb58f}
+.disc.max{background:linear-gradient(135deg,#1a1a1a,#3a2e1c)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.tag{font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--bg);color:var(--ink-2);white-space:nowrap}
+.tag.le{background:var(--gold-soft);color:var(--gold-ink)}
+.name{padding:16px 20px 0;font-size:18px;font-weight:600;line-height:1.35;letter-spacing:.01em}
+.price{padding:14px 20px 18px;display:flex;align-items:flex-end;flex-wrap:wrap;gap:4px 14px}
+.price .now{font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.price .now small{font-size:22px;font-weight:600;margin-right:2px}
+.price .was{font-size:17px;color:var(--ink-3);text-decoration:line-through;padding-bottom:4px}
+.save{margin:0 20px;padding:10px 14px;border-radius:12px;background:var(--gold-soft);color:var(--gold-ink);font-size:14px;font-weight:500}
+.save b{font-weight:700}
+.status{margin:14px 20px 0;padding:14px;border-radius:14px;display:flex;align-items:center;gap:12px}
+.status .dot{width:10px;height:10px;border-radius:50%;flex:none;background:currentColor;box-shadow:0 0 0 4px color-mix(in srgb,currentColor 18%,transparent)}
+.status .st{font-weight:700;font-size:15px}
+.status .pd{font-size:13px;opacity:.85;margin-top:1px}
+.status.on{background:var(--green-soft);color:var(--green)}
+.status.soon{background:var(--amber-soft);color:var(--amber)}
+.status.off{background:var(--red-soft);color:var(--red)}
+.meta{margin-top:16px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}
+.meta div{padding:14px 20px}
+.meta div+div{border-left:1px solid var(--line)}
+.meta dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.meta dd{margin-top:4px;font-size:15px;font-weight:600;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.other{padding:12px 20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-2);background:#fbfaf7}
+
+/* Not found */
+.empty{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 22px;text-align:center;animation:rise .22s ease-out}
+.empty .big{width:52px;height:52px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;background:var(--red-soft);color:var(--red)}
+.empty h3{font-size:17px}
+.empty p{margin-top:6px;color:var(--ink-2);font-size:14px;line-height:1.5}
+.empty code{font-family:inherit;font-weight:700;color:var(--ink);background:var(--bg);padding:2px 8px;border-radius:6px}
+
+/* List */
+.list-h{display:flex;justify-content:space-between;align-items:baseline;margin:0 4px 10px}
+.list-h h2{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.list-h span{font-size:13px;color:var(--ink-3)}
+.list{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.row{width:100%;text-align:left;display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:13px 16px;border-top:1px solid var(--line);align-items:center}
+.row:first-child{border-top:0}
+.row:hover,.row:focus-visible{background:#faf8f4;outline:none}
+.row .d{font-size:14px;font-weight:500;line-height:1.35}
+.row .c{grid-column:1;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.row .r{grid-column:2;grid-row:1/3;text-align:right}
+.row .r b{display:block;font-size:16px;font-variant-numeric:tabular-nums}
+.row .r em{font-style:normal;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--ink);color:#fff}
+.row .r em.le{background:var(--gold);}
+mark{background:var(--gold-soft);color:inherit;border-radius:3px;padding:0 1px}
+
+/* Home */
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--surface);border-radius:14px;padding:14px 12px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:22px;font-weight:700;letter-spacing:-.01em}
+.stat span{font-size:12px;color:var(--ink-3)}
+.filters{display:flex;gap:8px;margin:22px 0 12px;overflow-x:auto;scrollbar-width:none}
+.chip{flex:none;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);font-size:13px;font-weight:600;color:var(--ink-2)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.recent{margin-top:18px}
+.recent-list{display:flex;flex-wrap:wrap;gap:8px}
+.recent-list button{padding:7px 12px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-size:13px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--ink-2);margin:0 4px 12px;padding:4px 0}
+footer{margin-top:28px;text-align:center;font-size:12px;color:var(--ink-3);line-height:1.6}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:380px){.price .now{font-size:34px}.disc b{font-size:26px}.summary{gap:8px}.stat b{font-size:19px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="head-in">
+    <div class="brand"><h1>BALMAIN</h1><small>Promo Check</small></div>
+    <div class="seg" role="group" aria-label="เลือกสาขา" id="seg"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="search" id="sbox">
+    <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <label for="q" class="sr">ค้นหาสินค้า</label>
+    <input id="q" type="text" enterkeyhint="search" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
+      placeholder="Article / บาร์โค้ด / ชื่อสินค้า" autofocus>
+    <button class="clr" id="clr" aria-label="ล้าง"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <p class="hint">ยิงสแกนเนอร์หรือพิมพ์รหัส แล้วกด <kbd>Enter</kbd></p>
+  <section id="out" aria-live="polite"></section>
+  <footer id="foot"></footer>
+</main>
+
+<script>
+const DATA = {"stores":{"KPC":{"start":"2026-10-15","end":"2026-12-31"},"KPT_KPD":{"start":"2026-10-26","end":"2026-12-31"}},"items":[{"a":"8383377","r":"LE HJ BAR BOW SS22","d":"BAM+LMT EDT BARRETTE WITH BOW SS2 F1","p":25500,"n":2550,"x":90},{"a":"8383378","r":"LE HJ HB CHAIN SS22","d":"BAM+LMT EDT LEATHE CHAIN HEADBAND SS2 F1","p":31900,"n":3190,"x":90},{"a":"8383381","r":"LE HJ BAR M FW22","d":"BAM+LMT EDT BARRETTE MEDIUM FW22 F1","p":20500,"n":2050,"x":90},{"a":"8383383","r":"LE HJ BAR BOW FW22","d":"BAM+LMT EDT BARRETTE BOW FW22 F1","p":9990,"n":999,"x":90},{"a":"8383374","r":"HJ BARETTE LEATHER B","d":"BAM HAIR BARRETTE LEATHER BLACK F1","p":17500,"n":1750,"x":90},{"a":"8383375","r":"HJ BARETTE LEATHER W","d":"BAM HAIR BARRETTE LEATHER WHITE F1","p":17500,"n":1750,"x":90},{"a":"8361647","r":"100007770","d":"BAM+HAIR RIVIERA HEADBAND GOLD SMALL","p":17900,"n":5370,"x":70},{"a":"8361648","r":"100007772","d":"BAM+HAIR RIVIERA BARRETTE COGNAC LARGE","p":11500,"n":3450,"x":70},{"a":"8361649","r":"100007771","d":"BAM+HAIR IVIERA BARRETTE COGNAC MEDIUM","p":9990,"n":2997,"x":70},{"a":"8361650","r":"100007769","d":"BAM+HAIR RIVIERA HEADBAND COGNAC SMALL","p":14500,"n":4350,"x":70},{"a":"8365279","r":"100008347","d":"BAM+BARRETTE CHEVEUX MD SILVER/GOLD FW23","p":11900,"n":3570,"x":70},{"a":"8365280","r":"100008344","d":"BAM+LEATHER HEADBAND LARGE SILVER FW23","p":21500,"n":6450,"x":70},{"a":"8366448","r":"8720791754174","d":"BAM HAIR B/W ACETATE HEADBAND SMALL","p":12500,"n":3750,"x":70},{"a":"8366449","r":"100013623","d":"BAM HAIR W/B ACETATE HEADBAND SMALL","p":12500,"n":3750,"x":70},{"a":"8366454","r":"8720791754471","d":"BAM HAIR ACETATE PINCE SMALL TORTOISE","p":4290,"n":1287,"x":70},{"a":"8366450","r":"8720791754273","d":"BAM HAIR ACETATE HEADBAND SHELL SMALL","p":12500,"n":3750,"x":70},{"a":"8366451","r":"8720791754327","d":"BAM HAIR B/W ACETATE PINCE MPERIALE","p":9990,"n":2997,"x":70},{"a":"8366452","r":"8720791754372","d":"BAM HAIR W/B COUTURE CELLULOSE IMPERIALE","p":9990,"n":2997,"x":70},{"a":"8366453","r":"8720791754426","d":"BAM HAIR ACETATE PINCE TORTOISE SHELL","p":9990,"n":2997,"x":70},{"a":"8383384","r":"HJ GP HB S G CHAIN","d":"BAM+PONTDESARTS HB SM GOLDCHAIN FW23 F1","p":22000,"n":6600,"x":70},{"a":"8383385","r":"HJ GP HB S SG","d":"BAM+ECLATS HB SMALL SILVERGOLD FW23 F1","p":32500,"n":9750,"x":70},{"a":"8357224","r":"100007570","d":"BAM+HAIR BLACK LEAGOLDPLATEDLOGO","p":25500,"n":7650,"x":70},{"a":"8357232","r":"8720246240245","d":"BAM HAIRACETATECHEVEUXSMALL-BLK","p":4250,"n":1275,"x":70},{"a":"8357233","r":"8720246240238","d":"BAM HAIRACETATEHEVEUXSMALL-TOR","p":4250,"n":1275,"x":70},{"a":"8357234","r":"8720246240252","d":"BAM HAIR CHEVEUX SMALL HAIR-WHI","p":4250,"n":1275,"x":70},{"a":"8357237","r":"8720246240153","d":"BAM HAIR BARRETTE MEDIUM-BLK","p":3750,"n":1125,"x":70},{"a":"8357238","r":"8720246240139","d":"BAM HAIR BARRETTE LARGE-WHITE","p":4750,"n":1425,"x":70},{"a":"8357239","r":"8720246240160","d":"BAM HAIR BARRETTE MEDIUM-WHITE","p":3750,"n":1125,"x":70},{"a":"8357240","r":"100002960","d":"BAM HAIR BARRETTELARGE-TORTOISE","p":4750,"n":1425,"x":70},{"a":"8357241","r":"8720246240146","d":"BAM HAIR BARRETTE MEDIUM-TORTOISE","p":3750,"n":1125,"x":70},{"a":"8357217","r":"8718969476966","d":"BAM+HAIR COUTURE WHITE BRUSH","p":4390,"n":1317,"x":70},{"a":"8357219","r":"8719638146654","d":"BAM HAIR MINI ALL PURPOSE SPA BRUSH","p":2390,"n":717,"x":70},{"a":"8357221","r":"8719638146630","d":"BAM ARIS HAIRLUXURY SPA BRUSH","p":4690,"n":1407,"x":70},{"a":"8383020","r":"100007056","d":"BAM+25MM BK PROF CERAMIC ROUND BRUSH","p":2590,"n":777,"x":70},{"a":"8383022","r":"100007058","d":"BAM 43MM BK PROF CERAMIC ROUND BRUSH","p":2990,"n":897,"x":70},{"a":"8383024","r":"100007060","d":"BAM XL43MM BK PROF CERAMIC ROUND BRUSH","p":3690,"n":1107,"x":70},{"a":"8383025","r":"100007061","d":"BAM GOLDEN CUTTING COMB","p":3790,"n":1137,"x":70},{"a":"8357229","r":"8718969476294","d":"BAM HAIR GOLDEN STYLING COMB","p":3690,"n":1107,"x":70},{"a":"8357230","r":"100007063","d":"BAM HAIR COUTUREGOLDENTAILCOMB","p":3590,"n":1077,"x":70},{"a":"8357231","r":"100007064","d":"BAM HAIR COUTURE COLOR COMBBLK","p":2590,"n":777,"x":70},{"a":"8381168","r":"8720791754914","d":"BAM+HAIR COUTURE PINCE CHEVEUX MEDIUM","p":5990,"n":1797,"x":70},{"a":"8381169","r":"8720791754969","d":"BAM+HAIR COUTURE PINCE CHEVEUX SMALL","p":4890,"n":1467,"x":70},{"a":"8383032","r":"100014579","d":"BAM+LEGACY LEATHER PUFFED HEADBAND FW24","p":25500,"n":7650,"x":70},{"a":"8383033","r":"100014580","d":"BAM+LEGACY CLIP PEARL FW24-LARGE","p":18900,"n":5670,"x":70},{"a":"8383034","r":"100014581","d":"BAM+LEGACYCELLULOSE ACETATE WHTLOGO FW24","p":18900,"n":5670,"x":70},{"a":"8383035","r":"100014582","d":"BAM+LEGACY BARRETTE WHITE FW24","p":12500,"n":3750,"x":70}]};
+const STORE_LABEL = {KPC:"KPC", KPT_KPD:"KPT / KPD"};
+const TH_MONTH = ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."];
+
+const $ = s => document.querySelector(s);
+const q = $("#q"), out = $("#out"), sbox = $("#sbox");
+const norm = s => String(s||"").toUpperCase().replace(/[\s\-_.]/g,"");
+const baht = n => n.toLocaleString("en-US");
+const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const store = {
+  get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+
+// Index
+DATA.items.forEach(it=>{
+  it.na=norm(it.a); it.nr=norm(it.r); it.nd=norm(it.d);
+  it.type = typeOf(it.d);
+});
+const byCode = new Map();
+DATA.items.forEach(it=>{byCode.set(it.na,it); byCode.set(it.nr,it);});
+
+function typeOf(d){
+  const s=d.toUpperCase();
+  if(/HEADBAND|\bHB\b/.test(s)) return "Headband";
+  if(/BRUSH/.test(s)) return "Brush";
+  if(/COMB/.test(s)) return "Comb";
+  if(/PINCE|CLIP/.test(s)) return "Clip";
+  if(/BARRETTE|BARETTE|CHEVEUX/.test(s)) return "Barrette";
+  return "Accessory";
+}
+const isLE = it => it.x>=90 || /\bLMT\b|\bLE\b/.test(it.d+" "+it.r);
+
+let cur = store.get("bm_store","KPC"); if(!DATA.stores[cur]) cur="KPC";
+let filter = "all";
+
+// Dates (local device date)
+function today(){const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate());}
+function pdate(s){const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d);}
+function fmt(s){const d=pdate(s);return `${d.getDate()} ${TH_MONTH[d.getMonth()]} ${d.getFullYear()+543}`;}
+function status(code){
+  const p=DATA.stores[code], t=today(), a=pdate(p.start), b=pdate(p.end);
+  const day=864e5;
+  if(t<a){const n=Math.round((a-t)/day);return {k:"soon",t:"ยังไม่เริ่มโปร",s:`เริ่มอีก ${n} วัน`};}
+  if(t>b) return {k:"off",t:"โปรหมดอายุแล้ว",s:`สิ้นสุดเมื่อ ${fmt(p.end)}`};
+  const n=Math.round((b-t)/day);
+  return {k:"on",t:"โปรใช้งานได้",s:n===0?"วันสุดท้ายวันนี้":`เหลืออีก ${n} วัน`};
+}
+
+// Store switch
+function renderSeg(){
+  $("#seg").innerHTML = Object.keys(DATA.stores).map(k=>{
+    const p=DATA.stores[k];
+    return `<button aria-pressed="${k===cur}" data-s="${k}">${STORE_LABEL[k]||k}<span>${fmt(p.start)} – ${fmt(p.end)}</span></button>`;
+  }).join("");
+}
+$("#seg").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-s]"); if(!b) return;
+  cur=b.dataset.s; store.set("bm_store",cur); renderSeg(); route(); q.focus();
+});
+
+// Views
+let view = {name:"home"};
+function route(){
+  if(view.name==="item") showItem(view.item,false);
+  else if(view.name==="list") showList(view.term);
+  else if(view.name==="none") showNone(view.term);
+  else showHome();
+}
+
+function showItem(it, record=true){
+  view={name:"item",item:it};
+  const st=status(cur), p=DATA.stores[cur], le=isLE(it);
+  const others=Object.keys(DATA.stores).filter(k=>k!==cur).map(k=>{
+    const s=status(k);return `${STORE_LABEL[k]||k}: ${fmt(DATA.stores[k].start)} – ${fmt(DATA.stores[k].end)} · ${s.t}`;
+  }).join("<br>");
+  out.innerHTML = `
+  ${backBtn()}
+  <article class="card">
+    <div class="card-top">
+      <div class="disc ${le?"max":""}"><b>-${it.x}%</b><i>OFF</i></div>
+      <div class="tags">${le?'<span class="tag le">Limited Edition</span>':""}<span class="tag">${it.type}</span></div>
+    </div>
+    <h2 class="name">${esc(it.d)}</h2>
+    <div class="price">
+      <div class="now"><small>฿</small>${baht(it.n)}</div>
+      <div class="was">฿${baht(it.p)}</div>
+    </div>
+    <div class="save">ลูกค้าประหยัด <b>฿${baht(it.p-it.n)}</b> จากราคาปกติ</div>
+    <div class="status ${st.k}">
+      <span class="dot"></span>
+      <div><div class="st">${st.t} · ${STORE_LABEL[cur]||cur}</div><div class="pd">${fmt(p.start)} – ${fmt(p.end)} · ${st.s}</div></div>
+    </div>
+    <dl class="meta">
+      <div><dt>Article</dt><dd>${esc(it.a)}</dd></div>
+      <div><dt>Sup. Ref</dt><dd>${esc(it.r)}</dd></div>
+    </dl>
+    ${others?`<div class="other">${others}</div>`:""}
+  </article>`;
+  if(record) addRecent(it.a);
+}
+
+function rowHTML(it, term){
+  const hl = s => {
+    if(!term) return esc(s);
+    const i=s.toUpperCase().indexOf(term.toUpperCase());
+    return i<0?esc(s):esc(s.slice(0,i))+"<mark>"+esc(s.slice(i,i+term.length))+"</mark>"+esc(s.slice(i+term.length));
+  };
+  return `<button class="row" data-a="${esc(it.a)}">
+    <span class="d">${hl(it.d)}</span>
+    <span class="c">${hl(it.a)} · ${hl(it.r)}</span>
+    <span class="r"><b>฿${baht(it.n)}</b><em class="${isLE(it)?"le":""}">-${it.x}%</em></span>
+  </button>`;
+}
+
+function showList(term){
+  view={name:"list",term};
+  const t=norm(term), raw=term.trim();
+  const res=DATA.items.filter(it=>it.na.includes(t)||it.nr.includes(t)||it.nd.includes(t)||it.d.toUpperCase().includes(raw.toUpperCase()));
+  if(!res.length) return showNone(term);
+  out.innerHTML = `<div class="list-h"><h2>ผลการค้นหา</h2><span>${res.length} รายการ</span></div>
+    <div class="list">${res.map(it=>rowHTML(it,raw)).join("")}</div>`;
+}
+
+function showNone(term){
+  view={name:"none",term};
+  out.innerHTML = `${backBtn()}<div class="empty">
+    <div class="big"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+    <h3>ไม่อยู่ในรายการโปรโมชั่น</h3>
+    <p>ไม่พบรหัส <code>${esc(term)}</code><br>ในโปร Balmain 70–90% ของสาขา ${STORE_LABEL[cur]||cur}</p>
+  </div>`;
+}
+
+function showHome(){
+  view={name:"home"};
+  const st=status(cur);
+  const n90=DATA.items.filter(i=>i.x>=90).length, n70=DATA.items.length-n90;
+  const items=DATA.items.filter(i=>filter==="all"||String(i.x)===filter).slice().sort((a,b)=>b.x-a.x||a.d.localeCompare(b.d));
+  const rec=store.get("bm_recent",[]).map(a=>byCode.get(norm(a))).filter(Boolean);
+  out.innerHTML = `
+  <div class="summary">
+    <div class="stat"><b>${DATA.items.length}</b><span>SKU ในโปร</span></div>
+    <div class="stat"><b>${n90}</b><span>ลด 90%</span></div>
+    <div class="stat"><b>${n70}</b><span>ลด 70%</span></div>
+  </div>
+  <div class="status ${st.k}" style="margin:12px 0 0"><span class="dot"></span>
+    <div><div class="st">${st.t} · ${STORE_LABEL[cur]||cur}</div><div class="pd">${fmt(DATA.stores[cur].start)} – ${fmt(DATA.stores[cur].end)} · ${st.s}</div></div></div>
+  ${rec.length?`<div class="recent"><div class="list-h"><h2>ค้นหาล่าสุด</h2></div><div class="recent-list">${rec.map(it=>`<button data-a="${esc(it.a)}">${esc(it.a)}</button>`).join("")}</div></div>`:""}
+  <div class="filters" role="group" aria-label="กรองส่วนลด">
+    ${[["all","ทั้งหมด"],["90","ลด 90%"],["70","ลด 70%"]].map(([k,l])=>`<button class="chip" data-f="${k}" aria-pressed="${filter===k}">${l}</button>`).join("")}
+  </div>
+  <div class="list">${items.map(it=>rowHTML(it,"")).join("")}</div>`;
+}
+
+function backBtn(){return `<button class="back" data-back><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>รายการทั้งหมด</button>`;}
+
+function addRecent(a){
+  const r=store.get("bm_recent",[]).filter(x=>x!==a); r.unshift(a); store.set("bm_recent",r.slice(0,6));
+}
+
+// Events
+out.addEventListener("click",e=>{
+  const row=e.target.closest("[data-a]");
+  if(row){const it=byCode.get(norm(row.dataset.a)); if(it){q.value=it.a; sbox.classList.add("has"); showItem(it); window.scrollTo({top:0,behavior:"smooth"});} return;}
+  const f=e.target.closest("[data-f]"); if(f){filter=f.dataset.f; showHome(); return;}
+  if(e.target.closest("[data-back]")){clear();}
+});
+
+function search(commit){
+  const v=q.value.trim();
+  sbox.classList.toggle("has",!!v);
+  if(!v){showHome();return;}
+  const hit=byCode.get(norm(v));
+  if(hit){showItem(hit,commit); if(commit) q.select(); return;}
+  if(commit){
+    const t=norm(v);
+    const res=DATA.items.filter(it=>it.na.includes(t)||it.nr.includes(t)||it.nd.includes(t));
+    if(res.length===1){showItem(res[0]); q.select(); return;}
+    if(!res.length){showNone(v); q.select(); return;}
+  }
+  if(norm(v).length<2){showHome();return;}
+  showList(v);
+}
+function clear(){q.value="";sbox.classList.remove("has");showHome();q.focus();}
+
+let tmr;
+q.addEventListener("input",()=>{clearTimeout(tmr);tmr=setTimeout(()=>search(false),120);});
+q.addEventListener("keydown",e=>{
+  if(e.key==="Enter"){e.preventDefault();clearTimeout(tmr);search(true);}
+  if(e.key==="Escape"){clear();}
+});
+$("#clr").addEventListener("click",clear);
+// Keep scanner input landing in the search box
+document.addEventListener("keydown",e=>{
+  if(document.activeElement!==q && !e.ctrlKey && !e.metaKey && !e.altKey && e.key.length===1){q.focus();}
+});
+
+$("#foot").innerHTML=`Balmain Hair Couture · โปร 70–90% · ข้อมูล ${DATA.items.length} SKU<br>Landing Store AL3`;
+renderSeg(); showHome();
+</script>
+</body>
+</html>
